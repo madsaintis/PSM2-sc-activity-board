@@ -1,6 +1,7 @@
 import { useRef, useState } from 'react';
 import LoginInput from "../components/LoginInput/LoginInput.js";
 import '../App.css';
+import Footer from '../components/Footer/footer.js';
 
 const Login = () => {
     // const [username, setUsername] = useState(""
@@ -18,13 +19,16 @@ const Login = () => {
             name: "username",
             type: "text",
             placeholder: "Username",
-            label: "Username"
+            errorMessage: "Username is required.",
+            label: "Username",
+            required: true
         },
         {
             id: 2,
             name: "password",
             type: "password",
             placeholder: "Password",
+            errorMessage: "Password is required.",
             label: "Password"
         }
     ]
@@ -39,16 +43,19 @@ const Login = () => {
 
 
     return (
-        <div className="loginForm">
-            <form onSubmit={handleSubmit}>
-                <h1>Login</h1>
-                {inputs.map((input) => (
-                    <LoginInput key={input.id} {...input} value={values[input.name]} onChange={onChange} />
-                ))}
-                {/* <LoginInput refer={usernameRef} placeholder="Littleroot" label="Username" />
+        <div>
+            <div className="loginForm">
+                <form onSubmit={handleSubmit}>
+                    <h1>Login</h1>
+                    {inputs.map((input) => (
+                        <LoginInput key={input.id} {...input} value={values[input.name]} onChange={onChange} />
+                    ))}
+                    {/* <LoginInput refer={usernameRef} placeholder="Littleroot" label="Username" />
                 <LoginInput refer={passwordRef} placeholder="Azalea" label="Password" /> */}
-                <button>Submit</button>
-            </form>
+                    <button>Submit</button>
+                </form>
+
+            </div>
         </div>
     );
 };

@@ -1,0 +1,8 @@
+.aboutPage,
+.contactPage,
+.signupPage {
+  margin: 30px;
+  padding: 10px;
+  border-color: black;
+  border-style: solid;
+}
